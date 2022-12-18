@@ -1,33 +1,36 @@
 import PropTypes from 'prop-types';
-import css from './TransactionHistory.module.css'
+import css from './TransactionHistory.module.css';
 
-export const TransactionHistory = ({items}) =>{
-return (
+export const TransactionHistory = ({ items }) => {
+  return (
     <table className={css.transactionHistory}>
-        <thead>
-            <tr>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Currency</th>
-            </tr>
-        </thead>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Currency</th>
+        </tr>
+      </thead>
 
-        <tbody>
-            {items.map(({id,type,amount,currency})=>(
-            <tr key={id}>
+      <tbody>
+        {items.map(({ id, type, amount, currency }) => (
+          <tr key={id}>
             <td>{type}</td>
             <td>{amount}</td>
             <td>{currency}</td>
-            </tr>
-            ))}
-        </tbody>
+          </tr>
+        ))}
+      </tbody>
     </table>
-)
-}
+  );
+};
+
 TransactionHistory.propTypes = {
-items: PropTypes.exact({
-    type:PropTypes.string.isRequired,
-    amount:PropTypes.number.isRequired,
-    currency:PropTypes.string.isRequired
-})
-}
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
