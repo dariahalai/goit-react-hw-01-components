@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+// import { Fragment } from 'react';
 
 import { Profile } from './Profile/Profile';
 import user from '../data/user.json';
@@ -14,7 +14,7 @@ import transactions from '../data/transactions.json';
 
 export const App = () => {
   return (
-    <Fragment>
+    <>
       <Profile
         username={user.username}
         tag={user.tag}
@@ -25,6 +25,6 @@ export const App = () => {
       <Statistics title="Upload stats" stats={data} />
       <FriendList friends={friends} />;
       <TransactionHistory items={transactions} />;
-    </Fragment>
+    </>
   );
 };
